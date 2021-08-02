@@ -1,4 +1,5 @@
 import Header from './components/TheHeader'
+import Generator from './components/TheGenerator'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
@@ -13,6 +14,7 @@ function App() {
     <div>
       <GlobalStyle />
       <Header />
+      <Generator />
     </div>
   )
 }
