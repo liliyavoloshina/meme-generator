@@ -11,11 +11,13 @@ function Meme(props) {
 
 const MemeElement = styled.div`
   position: relative;
-  width: 90%;
+  height: 550px;
   margin: 2em auto;
 `
 const MemeImage = styled.img`
   width: 100%;
+  height: 100%;
+  object-fit: contain;
 `
 
 const Text = styled.h2`
@@ -37,10 +39,10 @@ const Text = styled.h2`
 `
 
 const MemeTextTop = styled(Text)`
-  top: 1em;
+  top: .5em;
 `
 const MemeTextBottom = styled(Text)`
-  bottom: 1em;
+  bottom: .5em;
 `
 
 export default Meme
