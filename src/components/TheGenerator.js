@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Container} from './uiComponents'
+import { Container } from './uiComponents'
+import Meme from './TheMeme'
 
 const Form = styled.form`
   display: flex;
@@ -26,23 +27,36 @@ const Button = styled.button`
   background-color: #6441a5;
   &:hover {
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
   }
 `
 
 class Generator extends React.Component {
   constructor() {
     super()
+    this.state = {
+      textTop: 'One does not simply',
+      textBottom: 'Walk into Mordor',
+      image: "http://i.imgflip.com/1bij.jpg"
+    }
+  }
+
+  handleChange = (e) => {
+    const {value, name} = e.target
+    this.setState({
+      [name]: value
+    })
   }
 
   render() {
     return (
       <Container>
         <Form>
-          <Input placeholder="Top text" />
-          <Input placeholder="Bottom text" />
+          <Input onChange={this.handleChange} value={this.state.textTop} name="textTop" placeholder="Top text" />
+          <Input onChange={this.handleChange} value={this.state.textBottom} name="textBottom" placeholder="Bottom text" />
           <Button>Generate!</Button>
         </Form>
+        <Meme textTop={this.state.textTop} textBottom={this.state.textBottom} image={this.state.image}/>
       </Container>
     )
   }
